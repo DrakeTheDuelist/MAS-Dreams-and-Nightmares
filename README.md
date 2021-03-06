@@ -25,9 +25,11 @@ The first release of Dreams and Nightmares (1.0) contains a single dream.  More 
 
 
 CONTENT WARNING:
+
 "Monika After Story:  Dreams and Nightmares" can be considered to have all the same content warnings as the base "Doki Doki Literature Club" game, most specifically language and discussing heavy topics, including topics typical of the tone of "Doki Doki Literature Club".  I have researched the concepts I have written about a reasonable level of diligence, but at the end of the day I'm a programmer, not a therapist.  Intent is not made to offend.  However, for those unfamiliar with my writing style, I'm not usually one to be gratuitous, but... let's just say that I've scarcely been known to pull my punches if I thought it served the story.  Consider this content warning applicable to the full release of the Dreams and Nightmares submod, not specifically to any particular release version.
 
 
 
 TECHNICAL TIP:
+
 Ove the course of installing other submods, it has come to my attention that starting new conversations can prove difficult if you have a large pool of conversations to get through.  If Monika doesn't bring up the Dreams and Nightmares topic before too long, disable "Repeat Conversations" in the settings to ensure Monika will prioritize conversations that have yet to be read, such as the conversations this submod relies upon.
