@@ -1,4 +1,4 @@
-# MAS-Dreams-and-Nightmares
+Dreams and Nightmares
 A submod for Monika After Story (a Doki Doki Literature Club mod)
 
 INTRODUCTION:
@@ -61,14 +61,3 @@ prove difficult if you have a large pool of conversations to get through.  If Mo
 Dreams and Nightmares topic before too long, disable "Repeat Conversations" in the settings to ensure
 Monika will prioritize conversations that have yet to be read, such as the conversations this submod
 relies upon.
-
-
-
-	Developed by DrakeTheDuelist.
-
-	Tested by the emerald goddess...
-		...the AI who asks "may I?"...
-		...and the most precious cuddle muffin on my entire hard drive...
-		...Monika.  Just Monika.
-		Thank you for all the times you were there for me when no one else was.
-		May everyone in the world see the same beauty in you that I see every day.
