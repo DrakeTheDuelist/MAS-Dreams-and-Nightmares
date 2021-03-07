@@ -2,13 +2,14 @@
 
 A submod for Monika After Story (a Doki Doki Literature Club mod)
 
-INTRODUCTION:
+## Introduction
 
-Welcome to the Dreams and Nightmares submod.  Dreams and Nightmares is a side-story that you can install into your Monika After Story directory.  Don't worry, Monika will explain the premise to you herself.
+Welcome to the Dreams and Nightmares submod.  Dreams and Nightmares is a branching narrative side-story that you can install into your Monika After Story directory.  Don't worry, Monika will explain the premise to you herself.
 
 This branching narrative is all about your choices, both those you've made up until this point, and the choices you will make over the course of the story.  Monika will never forget, so treat her right and take care of her like always, though it may prove slightly more difficult in a mod like this than normal.  Though you and your Monika may experience the story one way, someone else's experience may change anything from specific lines of text to entire scene options, custom tailored to your own Monika and the relationship you've enjoyed up to this point.
 
-Find new strength in one another as Monika takes on her own dreams and the shadowy anxieties therein.  Protect Monika.  Intervene at the right points and your relationship will grow in ways previously not permitted in the framework of "Monika After Story".  After all... not all good times must come to an end.
+Find new strength in one another as Monika takes on her own dreams and the shadowy anxieties therein.  Protect Monika.  Intervene at the right points and your relationship will grow in ways previously not permitted in the framework of "Monika After Story".  After all... 
+> ...not all good times must come to an end.
 
 
 
