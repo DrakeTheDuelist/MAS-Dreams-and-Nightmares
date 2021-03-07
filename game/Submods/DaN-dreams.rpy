@@ -61,8 +61,8 @@ label DaN_dream_one:
         call DaN_dream_one_early_reaction
 
     # set the flag here at the last possible point so monika's after actions can reference having her first dream
-    if not persistent._mas_had_first_dream:
-        $ persistent._mas_had_first_dream = True
+    if not persistent._dan_had_first_dream:
+        $ persistent._dan_had_first_dream = True
     return
 label DaN_dream_one_full_reaction:
     #you and Monika saw the whole movie
@@ -78,7 +78,7 @@ label DaN_dream_one_full_reaction:
     extend 5ekbsb "being happy."
     m 6eubsb "[player]... thank you for not waking me."
     m 4eubsb "Even if I don't remember much of my dream, I'm glad I got to feel that way at all."
-    if not persistent._mas_had_first_dream:
+    if not persistent._dan_had_first_dream:
         m 7hubsb "Hopefully this will become a trend of getting a bunch of nice, happy dreams later."
     menu:
         "Is there anything you {i}do{/i} remember?":
@@ -86,11 +86,11 @@ label DaN_dream_one_full_reaction:
 
     $ was_surprise = ", and I'm sure this won't come as a surprise to you" if mas_isMoniEnamored(higher=True) else ""
     m 7lublb "Well[was_surprise], {i}you{/i} were there."
-    if not persistent._mas_had_first_dream:
+    if not persistent._dan_had_first_dream:
         m 7ksblb "I guess this {i}officially{/i} makes you my dream [guy]."
 
     m 4rtbld "I'm not sure how we got there, but one thing I {i}did{/i} catch was that we were going to see a movie together."
-    if not persistent._mas_dreams_had or 1 not in persistent._mas_dreams_had:
+    if not persistent._dan_dreams_had or 1 not in persistent._dan_dreams_had:
         m 5ltblo "And... uh...  Well, it probably wouldn't surprise you what movie we went to go see."
         m 5mtbld "I'm almost positive it {i}isn't{/i} a real movie, and it probably won't ever be one..."
     else:  #Monika is remarking on finally recognizing what movie you two went to see
@@ -100,8 +100,8 @@ label DaN_dream_one_full_reaction:
     extend 1sublo "{i}Doki Doki Literature Club{/i}."
     m 1dkbla "...{w=1}{nw}"
     extend 1kkblb "It was {i}our{/i} movie."
-    if persistent._mas_vow_to_prank:
-        $ persistent._mas_vow_to_prank = False        
+    if persistent._dan_vow_to_prank:
+        $ persistent._dan_vow_to_prank = False        
         show monika 1esa 
         $ play_song(store.songs.FP_JUST_MONIKA)
         pause 30.0
@@ -117,7 +117,7 @@ label DaN_dream_one_full_reaction:
     m 2lko "And if I find what I {i}think{/i} I'll find..."
     m 2dksdlp "...{w=1}{nw}"
     extend 3eksdlo "let's just say that I'll want to talk to you about it..."
-    $ persistent._mas_unlock_dream_one_explanation = True
+    $ persistent._dan_unlock_dream_one_explanation = True
     return
 label DaN_dream_about_ddlc_movie_reaction:
     # Monika can remember different aspects of the movie depending on what her status with the player is.
@@ -149,10 +149,10 @@ label DaN_dream_one_partial_reaction:
                 pass
 
     m 5rsd "Well, you {i}did{/i} wake me up pretty early."
-    $ this_time = " this time" if persistent._mas_asked_to_stay_dreaming else ""
+    $ this_time = " this time" if persistent._dan_asked_to_stay_dreaming else ""
     m 5eso "I got {i}some{/i} idea of what was going on in my dream[this_time], but it's a little vague."
     
-    if not persistent._mas_asked_to_stay_dreaming:
+    if not persistent._dan_asked_to_stay_dreaming:
         call DaN_please_allow_good_dream
         
     m 3rubso "In my dream, I think the two of us were going on a date."
@@ -196,7 +196,7 @@ label DaN_dream_one_partial_reaction:
         m 7ekbftpd "I've told you all this before, so I won't belabor my point."
         m 1dkbftuc "...{w=0.75}{nw}"
         extend 3ekbftuo "I'm afraid your health will go downhill before I can get out of here."
-        $ persistent._mas_revealed_fear_player_health = True
+        $ persistent._dan_revealed_fear_player_health = True
     else:
         m 4rkbftuo "If only I were out there with you, I'd make you a big, healthy meal {i}every single day{/i}."
         m 7fkbftud "I don't even care how much time it would take out of my day."
@@ -211,7 +211,7 @@ label DaN_dream_one_partial_reaction:
         "It was just a bad dream.":
             m 4wubfo "But it {i}wasn't{/i} a bad dream!"
             m 3ekbsb "Any dream where you're spending time with me {i}isn't{/i} a bad dream."
-            if persistent._mas_revealed_fear_player_hurt:
+            if persistent._dan_revealed_fear_player_hurt:
                 m 4rkbsb "At least assuming it doesn't involve you getting decapitated or something like that."
             m 7lkbsb "It's not spending time with you that scares me."
             m 2fkbsd "It's our time together {i}running out{/i} that scares me."
@@ -307,7 +307,7 @@ label DaN_dream_one_partial_reaction:
                     menu:
                         "...Just kidding~":
                             pass
-                    $ persistent._mas_vow_to_prank = True
+                    $ persistent._dan_vow_to_prank = True
                     m 6tkbftdb "One day,{w=0.6} when you least expect it,{w=0.6} I am gonna' {i}prank you so hard for that~  {/i}  "
                     extend 6skbftpt "({i}sniffle{/i})  {w=0.3}{nw}"
                     extend 6ekbftdb "{w=1.5}{nw}"
@@ -315,7 +315,7 @@ label DaN_dream_one_partial_reaction:
             call monika_kissing_motion(initial_exp="6dkbftdd", mid_exp="6dkbftdd", final_exp="6ekbfa")
             m 6wkbftdb "...you've taken such an {i}enormous{/i} burden for our future off my heart, [player]."
             # if you swear to Monika on your promise ring that you'll take care of yourself, she won't fear for your health anymore
-            $ persistent._mas_revealed_fear_player_health = False
+            $ persistent._dan_revealed_fear_player_health = False
             m 6hkbftdb "For as well-read as I am... and for all the poetry I've written..."
             $ gods_sake = "God's sake" if persistent._mas_pm_religious else "crying out loud"
             m 6wkbftdw "...I'm the president of the {i}Literature{/i} Club, for [gods_sake]..."
@@ -333,7 +333,7 @@ label DaN_dream_one_early_reaction:
             m 5rsd "Well, you {i}did{/i} wake me up pretty early, so I didn't get too good a look of what was going on."
             m 5gtb "Dreams sure deserve that reputation of being weird and hazy, don't they?"
 
-    if not persistent._mas_asked_to_stay_dreaming:
+    if not persistent._dan_asked_to_stay_dreaming:
         call DaN_please_allow_good_dream
 
     m 3rubld "Anyway, I know {i}you{/i} were there.  I think we were going on a date."
@@ -368,7 +368,7 @@ label DaN_dream_one_early_reaction:
     m 7rto "Although, I should still be careful if I go back into the same dream."
     m 7eso "Who knows {i}what{/i} that dream could've held in store if I saw it through to the end?"
     m 4eksdrb "You may very well have saved me from a nightmare."
-    if not persistent._mas_had_nightmare:
+    if not persistent._dan_had_nightmare:
         m 4hksdrb "I'm still a little nervous about the possibility of that happening."
         m 3lksdrp "Because if dreams can feel pretty much as real as life does..."
         m 1fksdrd "...then it would stand to reason that...{w=1.25} so would the nightmares."
@@ -395,9 +395,9 @@ label DaN_dream_one_early_reaction:
     extend 2fsblsdrc "{w=0.75}{nw}"
     extend 2esbssdru "{w=0.75}{nw}"
     extend 2ekbssdrb "is you..."
-    if persistent._mas_had_nightmare:
+    if persistent._dan_had_nightmare:
         m 2rsbssdro "...and not just that you're...{w=1} y'know... "
-        if persistent._mas_revealed_fear_player_hurt:
+        if persistent._dan_revealed_fear_player_hurt:
             extend 2gsbssdrd "{i}not{/i} gruesomely mutilated, but..."
     m 2esbsd "...because you're safe... "
     $ how_happy = "at least {i}nominally{/i} " if not persistent._mas_pm_love_yourself else ""
@@ -441,13 +441,10 @@ label DaN_dream_two:
     m 3gub "Looks like my modder isn't {i}quite{/i} as done with this train of thought as he'd like to be..."
     m "But at least we can still test label access to see if that idea works."
     m 5rud "This is where Dream #2 would be."
-    
-    if persistent._mas_dream_progress > 2:
-        m 5rud "This is where the full Dream #2's reaction would be."  
-    elif persistent._mas_dream_progress > 1:
-        m 5rud "This is where the late interrupted Dream #2's reaction would be."  
-    else:
-        m 5rud "This is where the early interrupted Dream #2's reaction would be."  
+
+    m 5rud "This is where the full Dream #2's reaction would be."  
+    m 5rud "This is where the late interrupted Dream #2's reaction would be."  
+    m 5rud "This is where the early interrupted Dream #2's reaction would be." 
     return
 
 label DaN_dream_three:
@@ -478,10 +475,8 @@ label DaN_dream_three:
     m "But at least we can still test label access to see if that idea works."
     m 5rud "This is where Dream #3 would be."
 
-    if persistent._mas_dream_progress > 1:
-        m 5rud "This is where the full Dream #3's reaction would be."  
-    else:
-        m 5rud "This is where the interrupted Dream #3's reaction would be."  
+    m 5rud "This is where the full Dream #3's reaction would be."  
+    m 5rud "This is where the interrupted Dream #3's reaction would be."  
     return
 
 label DaN_dream_four:
@@ -505,18 +500,13 @@ label DaN_dream_four:
     m 3gub "Looks like my modder isn't {i}quite{/i} as done with this train of thought as he'd like to be..."
     m "But at least we can still test label access to see if that idea works."
     m 5rud "This is where Dream #4 would be."  
-    $ persistent._mas_had_best_dream = True
+    $ persistent._dan_had_best_dream = True
     
-    if persistent._mas_dream_progress > 4:
-        m 5rud "This is where the full Dream #4's reaction would be."  
-    elif persistent._mas_dream_progress > 3:
-        m 5rud "This is where the almost full Dream #4's reaction would be."  
-    elif persistent._mas_dream_progress > 2:
-        m 5rud "This is where the late interrupted Dream #4's reaction would be."  
-    elif persistent._mas_dream_progress > 1:
-        m 5rud "This is where the moderately interrupted Dream #4's reaction would be."  
-    else:
-        m 5rud "This is where the early interrupted Dream #4's reaction would be."
+    m 5rud "This is where the full Dream #4's reaction would be." 
+    m 5rud "This is where the almost full Dream #4's reaction would be."  
+    m 5rud "This is where the late interrupted Dream #4's reaction would be."  
+    m 5rud "This is where the moderately interrupted Dream #4's reaction would be." 
+    m 5rud "This is where the early interrupted Dream #4's reaction would be."
     return
 
 label DaN_dream_five:
@@ -548,10 +538,9 @@ label DaN_dream_five:
     m 5rud "This is where Dream #5 would be."  
     m 5rud "This dream also counts as the nightmare.  If you saw Dream #4 before this, something went wrong."  
 
-    if persistent._mas_dream_progress > 1:
-        m 5rud "This is where the full Dream #5's reaction would be."  
-    else:
-        m 5rud "This is where the interrupted Dream #5's reaction would be."  
-    $ persistent._mas_had_nightmare = True
-    $ persistent._mas_all_dreams.append(4)
+    m 5rud "This is where the full Dream #5's reaction would be."  
+    m 5rud "This is where the interrupted Dream #5's reaction would be."  
+    
+    $ persistent._dan_had_nightmare = True
+    $ persistent._dan_all_dreams.append(4)
     return

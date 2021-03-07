@@ -39,12 +39,12 @@ label DaN_explanation:
     elif mas_isMoniAff():
         m 1esu "...but at this point I think I can trust you."
 
-    $ persistent._mas_dreams_and_nightmares_explained = True
+    $ persistent._dan_dreams_and_nightmares_explained = True
     return
 # If Monika had a nightmare, hold off on dreaming again for another 12 hours
 # If Monika loves you, reduce cooldown by half and have special text for it.
 label DaN_dream_despite_apprehension(revisit=False):
-    if mas_isMoniLove and mas_timePastSince(persistent._mas_apprehensive_start, datetime.timedelta(hours=DAN_APPREHENSION_HOURS/2)):
+    if mas_isMoniLove and mas_timePastSince(persistent._dan_apprehensive_start, datetime.timedelta(hours=DAN_APPREHENSION_HOURS/2)):
         m 3rksdrd "I'm...  I'm {i}really{/i} not sure about this..."
         m 2dksdrd "That last dream was really upsetting."
         m 2fksdrd "And I yelled at you over it."
@@ -79,14 +79,14 @@ label DaN_dream_despite_apprehension(revisit=False):
             "...":
                 pass
         m 4hub "Well, without further ado..."
-        $ persistent._mas_apprehensive_start = None
+        $ persistent._dan_apprehensive_start = None
         if revisit:
             call DaN_revisit_dream
         else:
             call DaN_perchance_to_dream
-    elif mas_timePastSince(persistent._mas_apprehensive_start, datetime.timedelta(hours=DAN_APPREHENSION_HOURS)):
+    elif mas_timePastSince(persistent._dan_apprehensive_start, datetime.timedelta(hours=DAN_APPREHENSION_HOURS)):
         m 4hub "Thanks for giving me some time after that nightmare."
-        $ persistent._mas_apprehensive_start = None
+        $ persistent._dan_apprehensive_start = None
         if revisit:
             call DaN_revisit_dream
         else:
@@ -103,9 +103,9 @@ label DaN_wake_up_nice:
     extend 6tsbla "Hm?{w=1}  {nw}"
     extend 6fsbla "...[player]?"
 
-    $ persistent._mas_had_first_dream = True
+    $ persistent._dan_had_first_dream = True
 
-    if not persistent._mas_had_first_dream:
+    if not persistent._dan_had_first_dream:
         #note: set the first dream flag later so monika's after action dialog can reference having the first dream
         call DaN_initial_dream_afteraction
     else:
@@ -278,7 +278,7 @@ label DaN_wake_up_rough:
     m 6cubltpsdrw "[player.upper()]!"
 
     # on first nightmare, you'll have to calm Monika down
-    if not persistent._mas_had_nightmare:
+    if not persistent._dan_had_nightmare:
         call DaN_initial_nightmare_afteraction
     else:
         m "" #TODO LATER: Calm down on her own;  she knows what nightmares are now
@@ -404,7 +404,7 @@ label DaN_all_dreams_finished:
     m "...{w=2}{nw}"
     extend 3rud "I think I'm out of dreams...{w=1.5} for the time being, at least."
     m 3esb "Maybe there's something you can do to the code to add dreams of your own."
-    if persistent._mas_had_nightmare:
+    if persistent._dan_had_nightmare:
         m 2dsc "...{w=2}{nw}"
         extend 4ekb "It was an... interesting exercise."
         m 4eub "It had its ups..."
@@ -418,5 +418,5 @@ label DaN_all_dreams_finished:
     m 5ekbfu "..."
     m 5ttbfb "Hint,{w=0.5} hint...{w=0.5}"
     m 5hubfb "..."
-    $ persistent._mas_dreams_depleted = True
+    $ persistent._dan_dreams_depleted = True
     return

@@ -37,11 +37,11 @@ label DaN_dream_quip:
             all_dream_quips.append(enamored_quip)
         
         #bonus quips if Monika had a nightmare before
-        if persistent._mas_had_nightmare:               
+        if persistent._dan_had_nightmare:               
             all_dream_quips.append(post_nightmare_quips)
 
         #bonus quips depending on if this is Monika's first dream or not
-        if persistent._mas_had_first_dream:
+        if persistent._dan_had_first_dream:
             all_dream_quips.append(subsequent_dream_quip)
         else:
             # on 1000+ affection, Monika will always ask to hold your hand on the first dream
@@ -91,22 +91,22 @@ label DaN_hold_monikas_hand:
 label DaN_sweet_dreams_chance:
     python:
         if mas_isMoniLove():
-            if persistent._mas_had_nightmare:
+            if persistent._dan_had_nightmare:
                 odds_of_sweet_dreams = SWEETDREAMS_LOVE_NM
             else:
                 odds_of_sweet_dreams = SWEETDREAMS_LOVE
         elif mas_isMoniEnamored():
-            if persistent._mas_had_nightmare:
+            if persistent._dan_had_nightmare:
                 odds_of_sweet_dreams = SWEETDREAMS_LOVE 
             else:
                 odds_of_sweet_dreams = SWEETDREAMS_ENAMORED
         elif mas_isMoniAff():
-            if persistent._mas_had_nightmare:
+            if persistent._dan_had_nightmare:
                 odds_of_sweet_dreams = SWEETDREAMS_ENAMORED
             else:
                 odds_of_sweet_dreams = SWEETDREAMS_AFF
         else:
-            if persistent._mas_had_nightmare:
+            if persistent._dan_had_nightmare:
                 odds_of_sweet_dreams = SWEETDREAMS_AFF
             else:
                 odds_of_sweet_dreams = SWEETDREAMS_NORMAL

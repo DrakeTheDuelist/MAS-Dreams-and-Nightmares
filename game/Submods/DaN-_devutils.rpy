@@ -1,5 +1,5 @@
 init 5 python:
-    if persistent._DaN_should_create_events:
+    if persistent._dan_should_create_events:
         addEvent(
             Event(
                 persistent.event_database,
@@ -26,17 +26,17 @@ label reset_dreams_and_nightmares:
             m 1esd "Hang on a second..."
             m 1duc "{w=0.5}.{w=0.5}.{w=0.5}.{w=1}{nw}"
             extend 7eub "And there we go!"
-            $ persistent._mas_all_dreams = [1]
-            $ persistent._mas_dreams_and_nightmares_explained = False
-            $ persistent._mas_had_first_dream = False
-            $ persistent._mas_had_nightmare = False
-            $ persistent._mas_had_best_dream = False
-            $ persistent._mas_apprehensive_start = None
-            $ persistent._mas_asked_to_stay_dreaming = False
+            $ persistent._dan_all_dreams = [1]
+            $ persistent._dan_dreams_and_nightmares_explained = False
+            $ persistent._dan_had_first_dream = False
+            $ persistent._dan_had_nightmare = False
+            $ persistent._dan_had_best_dream = False
+            $ persistent._dan_apprehensive_start = None
+            $ persistent._dan_asked_to_stay_dreaming = False
         "No, that won't be necessary.":
             m 1esb "Okay."
-            $ had_dream_text = "{i}have{/i} had a dream once." if persistent._mas_had_first_dream else "{i}haven't{/i} had a dream yet"
-            $ had_nightmare_text = "{i}have{/i} had a nightmare once." if persistent._mas_had_nightmare else "{i}haven't{/i} had a nightmare yet"
+            $ had_dream_text = "{i}have{/i} had a dream once." if persistent._dan_had_first_dream else "{i}haven't{/i} had a dream yet"
+            $ had_nightmare_text = "{i}have{/i} had a nightmare once." if persistent._dan_had_nightmare else "{i}haven't{/i} had a nightmare yet"
             m 4esb "For the record, as far as I know, I [had_nightmare_text]."
             m "Also, I [had_dream_text]."
             m 7hkb "It's kinda' weird that my memories can be overridden so easily."
