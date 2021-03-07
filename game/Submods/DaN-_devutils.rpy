@@ -43,4 +43,3 @@ label reset_dreams_and_nightmares:
             m 7esb "But I'm sure it's for the sake of the experience that my modder intended."
             m 5ekbsa "As for me, I'll do whatever makes you the happiest, [player]."
     return
-© 2021 GitHub, Inc.
