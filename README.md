@@ -22,4 +22,4 @@ __1.0__:  The first release of *Dreams and Nightmares* only contains a single dr
 Consider this content warning applicable to the full release of the Dreams and Nightmares submod, not specifically to any particular release version.
 
 ## Dev Utils
-The 
+The "DaN-\_dev-utils.rpy" file is not intended for public release.  It is for my own testing purposes.  Presently, it resets some of the more critical persistent variables to allow me to revisit certain dialog options again.  A planned upgrade will include a topic purge function which can wipe all *Dreams and Nightmares* discussion topics from "Repeat Conversation", simulating a clean install.
