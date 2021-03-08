@@ -4,8 +4,7 @@ init -990 python:
         author="DrakeTheDuelist",
         name="MAS-Dreams-and-Nightmares",
         description="Monika will have a random dream, and you can discuss it with her when she wakes up... or comfort her if she had a nightmare.",
-        version="1.0.3",
-        settings_pane="settings_screen_for_your_submod"
+        version="1.0.3"
     )
 
 # Register the updater
