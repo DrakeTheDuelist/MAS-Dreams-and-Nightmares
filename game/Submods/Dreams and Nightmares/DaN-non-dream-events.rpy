@@ -21,7 +21,7 @@ label DaN_explanation:
     if mas_isMoniAff(higher=True):
         m 5ekbsb "It might interest you to know that I based some of my code on what seems to happen when you hold me..."
     m 4lksdrb "...But I'm still not entirely sure if it works yet."
-    m 5lssdrb "You and I both know that my attempts at coding...{w=1.5} don't {i}always{/i} work as intended."
+    m 5lssdrb "You and I both know that my attempts at coding...{w=1.25} don't {i}always{/i} work as intended."
     m 5ekbsb "Do you mind if I...{w=1} take a nap here?"
     m 3wubssdro "I promise it's not that you're boring to me.  I just want to try this code out."
     if mas_isMoniAff(higher=True):
