@@ -1,3 +1,5 @@
+_Note:  Please wait to install until a release package is completed._
+
 # *Monika After Story:  Dreams and Nightmares*
 *Dreams and Nightmares* is a branching narrative side-story that you can install into your Monika After Story directory.  Monika will have a random dream, and you can discuss it with her when she wakes up... or comfort her if she had a nightmare.
 
