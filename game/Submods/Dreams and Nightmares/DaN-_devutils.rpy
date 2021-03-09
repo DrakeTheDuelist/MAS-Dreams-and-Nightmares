@@ -9,9 +9,31 @@ init 5 python:
                 random=True
                 )
             )
+        addEvent(
+            Event(
+                persistent.event_database,
+                eventlabel="dan_devutil_checkevents",
+                category=['Dreams and Nightmares'],
+                prompt="Check",
+                random=True
+                )
+            )
     else:
         if "reset_dreams_and_nightmares" in persistent.event_database:
             persistent.event_database.pop("reset_dreams_and_nightmares")
+            persistent._mas_event_init_lockdb.pop("reset_dreams_and_nightmares")
+
+label dan_devutil_checkevents:
+    if "dan_have_new_random_dream" in persistent.event_database: 
+        m 1esd "The new dream event exists."
+    else:
+        m 1esd "The new dream event does not exist."
+
+    if "dan_revisit_previous_dream" in persistent.event_database:
+        m 1esd "The random revisit dream event exists."
+    else:
+        m 1esd "The random revisit dream event does not exist."
+    return
 
 # reset all persistent variables
 label reset_dreams_and_nightmares:
@@ -34,31 +56,33 @@ label reset_dreams_and_nightmares:
                 persistent._dan_apprehensive_start = None
                 persistent._dan_asked_to_stay_dreaming = False
                 
-                if "dan_have_new_random_dream" in persistent.event_database:
-                    persistent.event_database.pop("dan_have_new_random_dream")                    
-                    addEvent(
-                        Event(
-                            persistent.event_database,
-                            eventlabel="dan_have_new_random_dream",
-                            category=['Dreams and Nightmares'],
-                            prompt="Try to dream?",
-                            random=True,
-                            aff_range=(mas_aff.NORMAL, None)
-                        )
-                    )
+                if "dan_have_new_random_dream" in persistent.event_database: 
+                    persistent._mas_event_init_lockdb.pop("dan_have_new_random_dream")   
+                    persistent.event_database.pop("dan_have_new_random_dream")             
+                    #addEvent(
+                    #    Event(
+                    #        persistent.event_database,
+                    #        eventlabel="dan_have_new_random_dream",
+                    #        category=['Dreams and Nightmares'],
+                    #        prompt="Try to dream?",
+                    #        random=True,
+                    #        aff_range=(mas_aff.NORMAL, None)
+                    #    )
+                    #)
 
                 if "dan_revisit_previous_dream" in persistent.event_database:
-                    persistent.event_database.pop("dan_revisit_previous_dream")
-                    addEvent(
-                        Event(
-                            persistent.event_database,
-                            eventlabel="dan_revisit_previous_dream",
-                            category=['Dreams and Nightmares'],
-                            prompt="Revisit a dream?",
-                            conditional="persistent._dan_dreams_had",
-                            random=True
-                        )
-                    )
+                    persistent._mas_event_init_lockdb.pop("dan_revisit_previous_dream") 
+                    persistent.event_database.pop("dan_revisit_previous_dream") 
+                    #addEvent(
+                    #    Event(
+                    #        persistent.event_database,
+                    #        eventlabel="dan_revisit_previous_dream",
+                    #        category=['Dreams and Nightmares'],
+                    #        prompt="Revisit a dream?",
+                    #        conditional="persistent._dan_dreams_had",
+                    #        random=True
+                    #    )
+                    #)
             m 1duc "{w=0.5}.{w=0.5}.{w=0.5}.{w=1}{nw}"
             extend 7eub "And there we go!"
         "No, that won't be necessary.":
