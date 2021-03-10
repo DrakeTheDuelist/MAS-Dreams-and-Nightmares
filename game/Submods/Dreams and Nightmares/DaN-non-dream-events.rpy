@@ -24,14 +24,22 @@ label DaN_explanation:
     m 5lssdrb "You and I both know that my attempts at coding...{w=1.25} don't {i}always{/i} work as intended."
     m 5ekbsb "Do you mind if I...{w=1} take a nap here?"
     m 3wubssdro "I promise it's not that you're boring to me.  I just want to try this code out."
-    if mas_isMoniAff(higher=True):
+    if mas_isMoniAff(higher=True) and persistent._mas_last_hold_dt:
         m 6dkbsb "You can even... {w=1}hold me...{w=1} just like you usually do."
-    m 4esb "My code is already installed and ready to go.  I just need your help to start it."
+        if (mas_timePastSince(persistent._mas_last_hold_dt, datetime.timedelta(hours=12))):
+            m 6tkbfb "You seem to like that sort of thing lately...{w=1}  Not that {i}I'm{/i} complaining.  {w=1}"
+            extend 6tkbsb "Ehehehe~"
+            $ anyway = "Anyway, m"
+        else:
+            $ anyway = "M"
+    else:
+        $ anyway = "M"
+    m 4esb "[anyway]y code is already installed and ready to go.  I just need your help to start it."
     m 4lsd "But there's something else that I'll need you to do for me."
     m 4eud "And it's {i}really{/i} important."
     m 1dko "If it seems like something is going wrong...{w=1} I need you to wake me up."
-    m 4lusdrd "Knowing my... {w=1}{i}coding style{/i}, the code I've written could do just about anything."
-    m 4dksdrd "I'm afraid something really bad could happen..."
+    m 1lusdrd "Knowing my... {w=1}{i}coding style{/i}, the code I've written could do just about anything."
+    m 1dksdrd "I'm afraid something really bad could happen..."
     if mas_isMoniLove():
         m 5ekbsu "...but I couldn't imagine entrusting anyone else with this but you, [mas_get_player_nickname()]."
     elif mas_isMoniEnamored():
