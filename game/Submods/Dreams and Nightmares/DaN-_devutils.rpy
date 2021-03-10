@@ -1,27 +1,22 @@
 init 5 python:
-    if persistent._dan_should_create_events:
-        addEvent(
-            Event(
-                persistent.event_database,
-                eventlabel="reset_dreams_and_nightmares",
-                category=['Dreams and Nightmares'],
-                prompt="Reset",
-                random=True
-                )
+    addEvent(
+        Event(
+            persistent.event_database,
+            eventlabel="reset_dreams_and_nightmares",
+            category=['Dreams and Nightmares'],
+            prompt="Reset",
+            random=True
             )
-        addEvent(
-            Event(
-                persistent.event_database,
-                eventlabel="dan_devutil_checkevents",
-                category=['Dreams and Nightmares'],
-                prompt="Check",
-                random=True
-                )
+        )
+    addEvent(
+        Event(
+            persistent.event_database,
+            eventlabel="dan_devutil_checkevents",
+            category=['Dreams and Nightmares'],
+            prompt="Check",
+            random=True
             )
-    else:
-        if "reset_dreams_and_nightmares" in persistent.event_database:
-            persistent.event_database.pop("reset_dreams_and_nightmares")
-            persistent._mas_event_init_lockdb.pop("reset_dreams_and_nightmares")
+        )
 
 label dan_devutil_checkevents:
     if "dan_have_new_random_dream" in persistent.event_database: 
@@ -29,10 +24,20 @@ label dan_devutil_checkevents:
     else:
         m 1esd "The new dream event does not exist."
 
+    if "dan_have_new_random_dream" in persistent._seen_ever:
+        m 1esd "The new dream event has been seen."
+    else:
+        m 1esd "The new dream event has not beeen seen."
+
     if "dan_revisit_previous_dream" in persistent.event_database:
         m 1esd "The random revisit dream event exists."
     else:
         m 1esd "The random revisit dream event does not exist."
+
+    if "dan_revisit_previous_dream" in persistent._seen_ever:
+        m 1esd "The revisit dream event has been seen."
+    else:
+        m 1esd "The revisit dream event has not beeen seen."
     return
 
 # reset all persistent variables
@@ -55,34 +60,6 @@ label reset_dreams_and_nightmares:
                 persistent._dan_had_best_dream = False
                 persistent._dan_apprehensive_start = None
                 persistent._dan_asked_to_stay_dreaming = False
-                
-                if "dan_have_new_random_dream" in persistent.event_database: 
-                    persistent._mas_event_init_lockdb.pop("dan_have_new_random_dream")   
-                    persistent.event_database.pop("dan_have_new_random_dream")             
-                    #addEvent(
-                    #    Event(
-                    #        persistent.event_database,
-                    #        eventlabel="dan_have_new_random_dream",
-                    #        category=['Dreams and Nightmares'],
-                    #        prompt="Try to dream?",
-                    #        random=True,
-                    #        aff_range=(mas_aff.NORMAL, None)
-                    #    )
-                    #)
-
-                if "dan_revisit_previous_dream" in persistent.event_database:
-                    persistent._mas_event_init_lockdb.pop("dan_revisit_previous_dream") 
-                    persistent.event_database.pop("dan_revisit_previous_dream") 
-                    #addEvent(
-                    #    Event(
-                    #        persistent.event_database,
-                    #        eventlabel="dan_revisit_previous_dream",
-                    #        category=['Dreams and Nightmares'],
-                    #        prompt="Revisit a dream?",
-                    #        conditional="persistent._dan_dreams_had",
-                    #        random=True
-                    #    )
-                    #)
             m 1duc "{w=0.5}.{w=0.5}.{w=0.5}.{w=1}{nw}"
             extend 7eub "And there we go!"
         "No, that won't be necessary.":
