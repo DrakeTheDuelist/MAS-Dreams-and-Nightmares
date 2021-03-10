@@ -7,13 +7,20 @@
 # If Monika has a nightmare, this label will stop you from attempting to
 # have Monika dream again for the next 12 hours after the dream concludes.
 init 5 python:
+    if persistent._dan_should_create_events:
+        removeTopicID("DaN_try_to_dream")
+        mas_eraseTopic("DaN_try_to_dream")
+        removeTopicID("DaN_revisit_dream")
+        mas_eraseTopic("DaN_revisit_dream")
+
     addEvent(
         Event(
-            persistent.event_database,
-            eventlabel="dan_have_new_random_dream",
+           persistent.event_database,
+            eventlabel="DaN_try_to_dream",
             category=['Dreams and Nightmares'],
             prompt="Try to dream?",
             random=True,
+            action=EV_ACT_PUSH,
             aff_range=(mas_aff.NORMAL, None)
         )
     )
@@ -21,17 +28,26 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="dan_revisit_previous_dream",
+            eventlabel="DaN_revisit_dream",
             category=['Dreams and Nightmares'],
             prompt="Revisit a dream?",
             conditional="persistent._dan_dreams_had",
+            action=EV_ACT_PUSH,
             random=True
         )
     )
 
 # The root action of getting a random dream.
-#label DaN_try_to_dream:
-label dan_have_new_random_dream:
+#label dan_have_new_random_dream:
+label DaN_try_to_dream:
+    if persistent._dan_dreams_had:
+        m 1esd "Whoops, something went wrong."
+        m "I'm seeing from some persistent variables that I've had a dream somehow, but that can't be."
+    else:
+        m 1esd "There, it worked."
+        m "I don't recall having any dreams, and the conditional on the revisit event should lock that revisiting event away."
+
+
     if persistent._dan_apprehensive_start:
         # note: This is a valid way to call apprehension because the only POSSIBLE
         # way for Monika to be apprehensive is if she dreamt a minimum of twice
@@ -66,7 +82,7 @@ label dan_have_new_random_dream:
                 call DaN_perchance_to_dream
     return
 # The root action of randomly having a drem Monika has already experienced so far.
-label dan_revisit_previous_dream:
+label DaN_revisit_dream:
     if persistent._dan_apprehensive_start:
         call DaN_dream_despite_apprehension()
     else: 
