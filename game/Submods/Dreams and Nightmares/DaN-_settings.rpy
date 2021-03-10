@@ -6,12 +6,6 @@ default persistent._dan_dreams_had = []
 # dreams able to be selected (TODO LATER)
 # Thought:  once a player has revisited every dream, they can give Monika any dream of their choice.
 
-# Allows the developer (that's me) to bypass the code at points.
-default persistent._dan_debug_mode = False
-
-# once events are created...
-default persistent._dan_should_create_events = True
-
 # flags whether or not the introduction conversation occurred
 default persistent._dan_dreams_and_nightmares_explained = False
 
@@ -36,14 +30,10 @@ default persistent._dan_vow_to_prank = False
 # log which of the girls the player would've pursued if DDLC was a proper visual novel (post-first-update)
 default persistent._dan_favorite_doki = False
 
-#increment this to record how far Monika got in the dream before waking up
-# DEPRECATED;  remove once it no longer has uses
-default persistent._dan_dream_progress = 0
-
 # holds a datetime for when Monika had her first nightmare.
 # if set, Monika will not want to dream again for 12 hours.
 default persistent._dan_apprehensive_start = None
-default DAN_APPREHENSION_HOURS = 0
+default DAN_APPREHENSION_HOURS = 12
 
 # sets the odds (1 / [insert constant here] chance) of telling Monika "Sweet Dreams" before a dream
 default SWEETDREAMS_LOVE_NM = 2
@@ -51,4 +41,9 @@ default SWEETDREAMS_LOVE = 3
 default SWEETDREAMS_ENAMORED = 5
 default SWEETDREAMS_AFF = 8
 default SWEETDREAMS_NORMAL = 15
-default SUBMOD_REDDIT_LINK = "https://www.reddit.com/r/MASFandom/comments/lpttsw/dreams_and_nightmares_a_mas_submod_teaser/"
+default SUBMOD_GITHUB_LINK = "https://github.com/DrakeTheDuelist/MAS-Dreams-and-Nightmares/issues"
+
+# Allows the developer (that's me) to bypass the code at points.
+default persistent._dan_debug_mode = False
+# If you want to test to see whether the events will be created properly, set this to true and all events will be recreated on each initialization.
+default persistent._dan_should_create_events = True
