@@ -130,9 +130,9 @@ label DaN_sweet_dreams_chance:
             sweet_dreams_quip = renpy.random.choice(sweet_dreams_quips)
 
         #if dev, ignore randomness and force kiss while debugging
-        if persistent._DaN_debug_mode:
-            say_sweet_dreams = True
-            sweet_dreams_quip = "KISS"
+        #if persistent._dan_debug_mode:
+        #    say_sweet_dreams = True
+        #    sweet_dreams_quip = "KISS"
 
     if say_sweet_dreams:
         menu:
@@ -163,7 +163,7 @@ label DaN_select_dream(random_dream):
         m 3gub "Looks like something didn't {i}quite{/i} work out like it was supposed to be..."
         m 1rud "I don't think you should be able to see this."
         m 3rud "You should probably tell this submod's creator, DrakeTheDuelist, that something went wrong."
-        m 4eub "I can even link you to the reddit post for the {a=[SUBMOD_REDDIT_LINK]}{i}{u}Dreams and Nightmares{/u}{/i}{/a} submod."
+        m 4eub "I can even link you to the github page for the {a=[SUBMOD_GITHUB_LINK]}{i}{u}Dreams and Nightmares{/u}{/i}{/a} submod."
         m 5gtb "...What {i}am{/i} I talking about?{w=1}  This sure is a lot of work to put into an error screen..."
         m 2hub "Ahahaha~"
     return
