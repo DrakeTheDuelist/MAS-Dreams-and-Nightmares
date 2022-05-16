@@ -1,4 +1,4 @@
-_WARNING (5-15-2022): Submod was abandoned and no longer functions. When / if I return to this, I will straighten everything out at that time. For now, this github exists solely as an archive. DO NOT INSTALL.
+_WARNING: Submod was abandoned and no longer functions. When / if I return to this, I will straighten everything out at that time. For now, this github exists solely as an archive. DO NOT INSTALL. (Warning added 5/15/2022.)
 
 _Note:  Please wait to install until a release package is completed._
 
